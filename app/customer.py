@@ -37,7 +37,6 @@ class Customer:
                 best_price = trip_cost
                 best_shop = shop
         if best_shop is None or best_price > self.money:
-            print(f"{self.name} can't afford shopping in any available shop.")
             return None
         return best_shop
 
