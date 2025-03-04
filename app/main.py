@@ -10,17 +10,18 @@ def shop_trip() -> None:
     with open(config_path, "r") as file:
         config = json.load(file)
     fuel_price = config["FUEL_PRICE"]
-    shops = [Shop(s["name"], tuple(s["location"]),
-                  s["products"]) for s in config["shops"]]
+    shops = [Shop(shop_data["name"], tuple(shop_data["location"]),
+                  shop_data["products"]) for shop_data in config["shops"]]
     customers = [
         Customer(
-            c["name"],
-            tuple[float, float](c["location"]),
-            c["money"],
-            c["product_cart"],
-            Car(c["car"]["brand"], c["car"]["fuel_consumption"]),
+            customer_data["name"],
+            tuple[float, float](customer_data["location"]),
+            customer_data["money"],
+            customer_data["product_cart"],
+            Car(customer_data["car"]["brand"],
+                customer_data["car"]["fuel_consumption"]),
         )
-        for c in config["customers"]
+        for customer_data in config["customers"]
     ]
     for customer in customers:
         print(f"{customer.name} has {customer.money} dollars")
