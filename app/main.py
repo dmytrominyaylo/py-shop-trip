@@ -15,7 +15,7 @@ def shop_trip() -> None:
     customers = [
         Customer(
             c["name"],
-            tuple(c["location"]),
+            tuple[float, float](c["location"]),
             c["money"],
             c["product_cart"],
             Car(c["car"]["brand"], c["car"]["fuel_consumption"]),
@@ -28,7 +28,7 @@ def shop_trip() -> None:
             trip_cost = customer.calculate_trip_cost(shop, fuel_price)
             if trip_cost is not None:
                 print(f"{customer.name}'s trip to the "
-                      f"{shop.name} costs {trip_cost: .2f}")
+                      f"{shop.name} costs {trip_cost:.2f}")  # noqa: E231
         best_shop = customer.choose_best_shop(shops, fuel_price)
         if best_shop:
             customer.go_shopping(best_shop, fuel_price)

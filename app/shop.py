@@ -24,8 +24,10 @@ class Shop:
         for product, quantity in product_cart.items():
             price = self.products[product] * quantity
             print(f"{quantity} {product}s for "
-                  f"{f"{price: .2f}".rstrip("0").rstrip(".")} dollars")
+                  f"{f"{price:.2f}".rstrip("0").rstrip(".")} "  # noqa: E231
+                  f"dollars")
         print(f"Total cost is "
-              f"{f"{total_cost: .2f}".rstrip("0").rstrip(".")} dollars")
+              f"{f"{total_cost:.2f}".rstrip("0").rstrip(".")} "  # noqa: E231
+              f"dollars")
         print("See you again!")
         print()
