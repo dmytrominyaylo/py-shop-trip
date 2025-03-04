@@ -28,7 +28,7 @@ def shop_trip() -> None:
             trip_cost = customer.calculate_trip_cost(shop, fuel_price)
             if trip_cost is not None:
                 print(f"{customer.name}'s trip to the "
-                      f"{shop.name} costs {trip_cost:.2f}")  # noqa: E231
+                      f"{shop.name} costs {trip_cost:.2f}")  # noqa: E231, E999
         best_shop = customer.choose_best_shop(shops, fuel_price)
         if best_shop:
             customer.go_shopping(best_shop, fuel_price)

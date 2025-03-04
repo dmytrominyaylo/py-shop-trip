@@ -55,4 +55,5 @@ class Customer:
         shop.print_receipt(self.name, self.product_cart, product_cost)
         self.money -= trip_cost
         print(f"{self.name} rides home")
-        print(f"{self.name} now has {self.money:.2f} dollars\n")  # noqa: E231
+        print(f"{self.name} now "
+              f"has {self.money:.2f} dollars\n")  # noqa: E231, E999
