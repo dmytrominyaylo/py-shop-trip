@@ -21,12 +21,12 @@ class Shop:
         print(f"\nDate: {now}")
         print(f"Thanks, {customer_name}, for your purchase!")
         print("You have bought:")
+        total_cost = str(total_cost).rstrip("0").rstrip(".")
         for product, quantity in product_cart.items():
             price = self.products[product] * quantity
+            price = str(price).rstrip("0").rstrip(".")
             print(f"{quantity} {product}s "
-                  f"for {f'{price:.2f}'.rstrip('0')  # noqa: E231, E999
-                  .rstrip('.')} dollars")
-        print(f"Total cost is {f'{total_cost:.2f}'  # noqa: E231, E999
-              .rstrip('0').rstrip('.')} dollars")
+                  f"for {price} dollars")  # noqa: E231, E999
+        print(f"Total cost is {total_cost} dollars")  # noqa: E231, E999
         print("See you again!")
         print()
