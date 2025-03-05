@@ -10,8 +10,7 @@ def shop_trip() -> None:
     with open(config_path, "r") as file:
         config = json.load(file)
     fuel_price = config["FUEL_PRICE"]
-    shops = [Shop(shop_data["name"], tuple(shop_data["location"]),
-                  shop_data["products"]) for shop_data in config["shops"]]
+    shops = [Shop(**shop_data) for shop_data in config["shops"]]
     customers = [
         Customer(
             customer_data["name"],
